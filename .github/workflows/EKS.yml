@@ -22,3 +22,9 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.3
 
       - run: terraform -chdir=Infra_CI/env/Hmolog init
+
+      - run: terraform -chdir=Infra_CI/env/Hmolog destroy -auto-approve
+
+      - run: terraform -chdir=Infra_CI/env/Hmolog apply -auto-approve
+
+      - run: terraform -chdir=Infra_CI/env/Hmolog destroy -auto-approve
