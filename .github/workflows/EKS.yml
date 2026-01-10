@@ -54,6 +54,7 @@ jobs:
       - run: kubectl create secret generic port --from-literal=PORT=8000
 
       - run: kubectl apply -f ./Infra_CI/go.yaml
+      - run: kubectl set image deployment/go-api go=leonardosatorello/go_ci:${{github.run_number}}
       
       - run: terraform -chdir=Infra_CI/env/Hmolog destroy -auto-approve
       
